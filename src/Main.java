@@ -1,16 +1,18 @@
-public class Main {
-    String outerMessage = "Hello from Outer!";
-
-    class Inner {
-        void showMessage() {
-            System.out.println(outerMessage);
+class Outer {
+    private class HiddenInner {
+        void secret () {
+            System.out.println("private!");
         }
     }
+    public  void reveal() {
+        HiddenInner hi = new HiddenInner();
+        hi.secret();
+    }
+}
+public class Main {
     public static void main(String[] args) {
-        Main main = new Main();
+        Outer outer = new Outer();
 
-        Main.Inner inner = main.new Inner();
-
-        inner.showMessage();
+        outer.reveal();
     }
 }
