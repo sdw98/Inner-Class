@@ -1,8 +1,10 @@
 class Car {
     String brand;
+    Engine engine;
 
     public Car (String brand){
         this.brand = brand;
+        this.engine = new Engine();
     }
 
     class Engine {
@@ -12,7 +14,6 @@ class Car {
     }
 
     public void startEngine() {
-        Engine engine = new Engine();
         engine.start();
     }
 }
